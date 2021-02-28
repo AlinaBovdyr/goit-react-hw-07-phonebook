@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import contactsActions from '../../redux/actions';
+import * as contactsActions from '../../redux/actions';
 import s from './Filter.module.css';
 
 function Filter({ value, onChangeFilter }) {
