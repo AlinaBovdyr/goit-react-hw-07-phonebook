@@ -21,8 +21,7 @@ const Header = ({onClick}) => {
 };
 
 Header.propTypes = {
-    onClick: PropTypes.func,
-}
-
+  onClick: PropTypes.func,
+};
 
 export default Header;

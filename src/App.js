@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { fetchContact } from './redux/contacts-operations';
+import { getAllContacts, getIsLoading } from './redux/selectors';
 
 import Container from './components/Container';
 import Header from './components/Header';
@@ -106,8 +107,8 @@ class App extends PureComponent {
 };
 
 const mapStateToProps = state => ({
-  contacts: state.contacts.items,
-  isLoading: state.contacts.loading,
+  contacts: getAllContacts(state),
+  isLoading: getIsLoading(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,7 +1,8 @@
 import s from './Sorter.module.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as contactsActions from '../../redux/actions';
+import { changeSorting } from '../../redux/actions';
+import { getSorter } from '../../redux/selectors';
 
 const Sort = {
   ABC: 'abc',
@@ -46,11 +47,11 @@ Sorter.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  value: state.contacts.sorter,
-})
+  value: getSorter(state),
+});
 
 const mapDispatchToProps = dispatch => ({
-  onRadioChange: e => dispatch(contactsActions.changeSorting(e.target.value))
-})
+  onRadioChange: e => dispatch(changeSorting(e.target.value))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sorter);
