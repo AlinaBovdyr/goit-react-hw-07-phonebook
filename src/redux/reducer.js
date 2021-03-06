@@ -20,6 +20,14 @@ const items = createReducer([], {
     [deleteContactSuccess]: (state, { payload }) => state.filter(({ id }) => id !== payload),
 });
 
+const filter = createReducer('', {
+    [changeFilter]: (_, { payload }) => payload,
+});
+
+const sorter = createReducer('date', {
+    [changeSorting]: (_, { payload }) => payload,
+});
+
 const loading = createReducer(false, {
     [fetchContactRequest]: () => true,
     [fetchContactSuccess]: () => false,
@@ -30,17 +38,13 @@ const loading = createReducer(false, {
     [deleteContactRequest]: () => true,
     [deleteContactSuccess]: () => false,
     [deleteContactError]: () => false,
-})
-
-const filter = createReducer('', {
-    [changeFilter]: (_, { payload }) => payload,
 });
 
-const sorter = createReducer('date', {
-    [changeSorting]: (_, { payload }) => payload,
+const error = createReducer(null, {
+    [deleteContactRequest]: (_, { payload }) => payload,
+    [deleteContactSuccess]: (_, { payload }) => payload,
+    [deleteContactError]: (_, { payload }) => payload,
 });
-
-const error = createReducer(null, {})
 
 export default combineReducers({
     items,
@@ -48,4 +52,4 @@ export default combineReducers({
     sorter,
     loading,
     error
-})
+});
