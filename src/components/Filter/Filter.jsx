@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {changeFilter} from '../../redux/actions';
-import { getFilter } from '../../redux/selectors';
+import { changeFilter, getFilter } from '../../redux';
 import s from './Filter.module.css';
 
 function Filter({ value, onChangeFilter }) {

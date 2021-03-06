@@ -1,8 +1,7 @@
 import s from './Sorter.module.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeSorting } from '../../redux/actions';
-import { getSorter } from '../../redux/selectors';
+import { changeSorting, getSorter } from '../../redux';
 
 const Sort = {
   ABC: 'abc',
