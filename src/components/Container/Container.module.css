@@ -4,15 +4,18 @@
 .container {
   position: relative;
   max-width: 600px;
+  min-height: 300px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
-  background-color: #fff;
+  background-image: url(../../img/telephone-blue-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .titleWrapper {
   text-align: center;
-  color: #fff;
+  color: #fefff7;
   background-color: mainColor;
 }
 
@@ -24,7 +27,6 @@
 .childContainer {
   padding: 20px;
   height: fit-content;
-  border: 1px solid mainColor;
 }
 
 .appear {
