@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { fetchContact } from './redux/contacts-operations';
-import { getAllContacts, getIsLoading } from './redux/selectors';
+import { getAllContacts, getError, getIsLoading } from './redux/selectors';
 
 import Container from './components/Container';
 import Header from './components/Header';
@@ -13,6 +13,7 @@ import Sorter from './components/Sorter';
 import Modal from './components/UI/Modal/Modal';
 import Notice from './components/Notice';
 import LoaderView from './components/UI/Loader';
+import ErrorView from './components/UI/Error';
 
 import './styles/animations/Fade.css';
 import './styles/animations/ModalAppear.css';
@@ -50,7 +51,7 @@ class App extends PureComponent {
 
   render() {
     const { showModal, error, text } = this.state;
-    const { contacts, isLoading } = this.props;
+    const { contacts, isLoading, isError } = this.props;
 
     return (
       <Container>
@@ -98,7 +99,7 @@ class App extends PureComponent {
           classNames="item-fade"
           timeout={500}
         >
-          <ContactList />
+          {isError ? <ErrorView /> : <ContactList />}
         </CSSTransition>
         
         </Container>
@@ -109,6 +110,7 @@ class App extends PureComponent {
 const mapStateToProps = state => ({
   contacts: getAllContacts(state),
   isLoading: getIsLoading(state),
+  isError: getError(state),
 });
 
 const mapDispatchToProps = dispatch => ({
